@@ -11,11 +11,14 @@ import SwiftUI
 // MARK: - View
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
-    @State private var isAuthenticated = false
+    let onLoginSuccess: (String) -> Void
+
+      init(_ onLoginSuccess: @escaping (String) -> Void) {
+        self.onLoginSuccess = onLoginSuccess
+      }
 
 
     var body: some View {
-        NavigationStack {
             
             ZStack {
                 // Animated background
@@ -68,7 +71,6 @@ struct LoginView: View {
                                                   systemImage: "lock")
                             }
 
-                            // Submit Button
                             Button(action: {
                                 if viewModel.isRegistering {
                                     viewModel.register()
@@ -87,7 +89,6 @@ struct LoginView: View {
                             }
                             .padding(.horizontal)
 
-                            // Toggle Button
                             Button(action: {
                                 viewModel.toggleRegistrationMode()
                             }) {
@@ -105,23 +106,24 @@ struct LoginView: View {
                 }
             }
             .onAppear {
-                viewModel.onSuccess = { _ in
-                    isAuthenticated = true
+                viewModel.onSuccess = { token in
+                    onLoginSuccess(token)
                 }
             }
-            .navigationDestination(isPresented: $isAuthenticated) {
-                MainTabView() // geçici ana ekran
+
+          
+            .alert(isPresented: $viewModel.showErrorAlert) {
+                Alert(
+                    title: Text(viewModel.isRegistering ? "Registration Failed" : "Login Failed"),
+                    message: Text(viewModel.errorMessage ?? ""),
+                    dismissButton: .default(Text("OK"), action: {
+                        viewModel.errorMessage = nil
+                        viewModel.showErrorAlert = false
+                    })
+                )
             }
-            .alert(isPresented: .constant(!viewModel.errorMessage.isEmpty)) {
-                Alert(title: Text(viewModel.isRegistering ? "Registration Failed" : "Login Failed"),
-                      message: Text(viewModel.errorMessage),
-                      dismissButton: .default(Text("OK")))
-            }
+
         }
     }
-}
 
 
-#Preview {
-    LoginView()
-}

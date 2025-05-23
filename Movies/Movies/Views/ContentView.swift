@@ -330,9 +330,4 @@ struct RoundedCorner: Shape {
     }
 }
 
-// MARK: - Preview
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(viewModel: MovieViewModel(service: MockMovieService()))
-    }
-}
+

@@ -17,6 +17,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var surname: String = ""
     @Published var email: String = ""
+    @Published var createdDate: Date? = nil
 
     // MARK: - UI State
     @Published var isLoading: Bool = false
@@ -45,9 +46,7 @@ final class ProfileViewModel: ObservableObject {
         isLoading = false
     }
 
-    /// Profil güncelleme isteği atar
     func updateProfile() async {
-        // Basit boş alan kontrolü
         guard !name.isEmpty, !surname.isEmpty, !email.isEmpty else {
             errorMessage = "All fields are required"
             return

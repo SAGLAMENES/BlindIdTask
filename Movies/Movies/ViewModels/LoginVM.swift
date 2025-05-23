@@ -11,6 +11,8 @@ import MovieAPI
 
 final class LoginViewModel: ObservableObject {
     // MARK: - Input
+    @Published var showErrorAlert: Bool = false
+
     @Published var name: String = ""
     @Published var surname: String = ""
     @Published var email: String = ""
@@ -19,7 +21,7 @@ final class LoginViewModel: ObservableObject {
 
     // MARK: - UI State
     @Published var isRegistering: Bool = false
-    @Published var errorMessage: String = ""
+    @Published var errorMessage: String? = nil
     @Published var isLoading: Bool = false
     @Published var gradientIndex: Int = 0
 
@@ -27,8 +29,8 @@ final class LoginViewModel: ObservableObject {
     private let authService: AuthServiceProtocol
 
     // MARK: - Login/Register Callback
-    var onSuccess: ((User) -> Void)?
-
+    var onSuccess: ((String) -> Void)?
+    
     // MARK: - Gradients
     let gradients: [(Color, Color)] = [
         (Color(red: 0.1, green: 0.1, blue: 0.3), Color(red: 0.2, green: 0.1, blue: 0.4)),
@@ -74,10 +76,13 @@ final class LoginViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self?.isLoading = false
                 switch result {
-                case .success(let user):
-                    self?.onSuccess?(user)
-                case .failure(let error):
-                    self?.errorMessage = error.localizedDescription
+                    case .success(_):
+                        if let token = KeychainService.read(key: "authToken") {
+                            self?.onSuccess?(token)
+                        }
+
+                case .failure(_):
+                    self?.setError("Mail Or Password Is Wrong")
                 }
             }
         }
@@ -94,10 +99,14 @@ final class LoginViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self?.isLoading = false
                 switch result {
-                case .success(let user):
-                    self?.onSuccess?(user)
+                    case .success(_):
+                        if let token = KeychainService.read(key: "authToken") {
+                            self?.onSuccess?(token)
+                        }
+
                 case .failure(let error):
-                    self?.errorMessage = error.localizedDescription
+                    self?.setError(error.localizedDescription)
+                                    self?.showErrorAlert = true
                 }
             }
         }
@@ -106,11 +115,11 @@ final class LoginViewModel: ObservableObject {
     // MARK: - Input Validation
     private func validateLoginInput() -> Bool {
         if email.isEmpty {
-            errorMessage = "Please enter your email"
+            setError("Please enter your email")
             return false
         }
         if password.isEmpty {
-            errorMessage = "Please enter your password"
+            setError("Please enter your password")
             return false
         }
         return true
@@ -118,27 +127,27 @@ final class LoginViewModel: ObservableObject {
 
     private func validateRegisterInput() -> Bool {
         if name.isEmpty {
-            errorMessage = "Please enter your name"
+            setError("Please enter your name")
             return false
         }
         if surname.isEmpty {
-            errorMessage = "Please enter your surname"
+            setError("Please enter your surname")
             return false
         }
         if email.isEmpty {
-            errorMessage = "Please enter your email"
+            setError("Please enter your email")
             return false
         }
         if password.isEmpty {
-            errorMessage = "Please enter your password"
+            setError("Please enter your password")
             return false
         }
         if confirmPassword.isEmpty {
-            errorMessage = "Please confirm your password"
+            setError("Please confirm your password")
             return false
         }
         if password != confirmPassword {
-            errorMessage = "Passwords do not match"
+            setError("Passwords do not match")
             return false
         }
         return true
@@ -153,4 +162,13 @@ final class LoginViewModel: ObservableObject {
             }
         }
     }
+    func setError(_ message: String) {
+        self.errorMessage = nil
+        self.showErrorAlert = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            self.errorMessage = message
+            self.showErrorAlert = true
+        }
+    }
+
 }

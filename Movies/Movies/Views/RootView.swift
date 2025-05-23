@@ -8,10 +8,23 @@
 import SwiftUI
 
 struct RootView: View {
+    @EnvironmentObject private var sessionVM: SessionViewModel
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            if sessionVM.isAuthenticated {
+                MainTabView()
+            } else {
+                LoginView { token in
+                    sessionVM.didLogin(token: token)
+                }
+            }
+        }
     }
 }
+
+
+
 
 #Preview {
     RootView()

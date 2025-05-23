@@ -55,7 +55,7 @@ struct MovieDetailView: View {
                                     .truncationMode(.tail)
                                 
                                 HStack(spacing: 8) {
-                                    Text("\(movie.year)")
+                                    Text(String(movie.year))
                                     Text(movie.category)
                                 }
                                 .font(.caption)

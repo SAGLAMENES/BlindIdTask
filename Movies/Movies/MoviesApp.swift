@@ -9,10 +9,13 @@ import SwiftUI
 import MovieAPI
 @main
 struct MoviesApp: App {
+    
+    @StateObject private var sessionVM = SessionViewModel()
+
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.black // ✅ NavigationBar siyah olur
+        appearance.backgroundColor = UIColor.black 
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
 
         UINavigationBar.appearance().standardAppearance = appearance
@@ -21,7 +24,9 @@ struct MoviesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            RootView()
+                    .environmentObject(sessionVM)
         }
     }
 }
+

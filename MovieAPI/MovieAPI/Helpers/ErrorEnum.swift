@@ -7,19 +7,19 @@
 
 import Foundation
 
-enum AuthError: LocalizedError {
+public enum AuthError: Error, LocalizedError {
     case invalidURL
     case noData
     case decoding(Error)
+    case api(String)
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
-        case .invalidURL:
-            return "URL is invalid"
-        case .noData:
-            return "No response data received"
-        case .decoding(let error):
-            return "Failed to decode response: \(error.localizedDescription)"
+        case .invalidURL: return "Invalid URL"
+        case .noData: return "No data received"
+        case .decoding(let err): return "Failed to decode response: \(err.localizedDescription)"
+        case .api(let msg): return msg
         }
     }
 }
+

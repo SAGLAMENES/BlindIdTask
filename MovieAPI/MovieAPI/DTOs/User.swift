@@ -6,13 +6,14 @@
 //
 
 import Foundation
+
+// MARK: - User
 public struct User: Codable, Identifiable {
     public let id: String
     public let name: String
     public let surname: String
     public let email: String
 }
-import Foundation
 
 // MARK: - Profile (GET /auth/me) Response DTO
 public struct ProfileDTO: Codable {
@@ -47,6 +48,7 @@ public struct UpdateProfileResponseDTO: Codable {
         case user
     }
 }
+// MARK: - Update User
 
 public struct UpdatedUserDTO: Codable {
     public let id: String

@@ -6,3 +6,26 @@
 //
 
 import Foundation
+import MovieAPI
+
+@MainActor
+final class SessionViewModel: ObservableObject {
+  @Published private(set) var isAuthenticated: Bool = false
+
+  private let sessionService: SessionServicing
+
+  init(sessionService: SessionServicing = SessionService()) {
+    self.sessionService = sessionService
+    self.isAuthenticated = sessionService.isLoggedIn()
+  }
+
+  func didLogin(token: String) {
+    sessionService.saveToken(token)
+    isAuthenticated = true
+  }
+
+  func logout() {
+    sessionService.clearToken()
+          self.isAuthenticated = false
+        }
+}

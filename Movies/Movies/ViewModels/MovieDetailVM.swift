@@ -10,6 +10,8 @@ import SwiftUI
 import Foundation
 
 @MainActor
+// MARK: - MovieDetailVM
+
 final class MovieDetailViewModel: ObservableObject {
     @Published var movie: Movie?
     @Published var isLoading = false

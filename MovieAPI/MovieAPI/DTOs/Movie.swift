@@ -6,6 +6,7 @@
 //
 
 import Foundation
+// MARK: - Movie
 
 public struct Movie: Codable, Identifiable {
     public let id: Int
@@ -30,6 +31,7 @@ public struct Movie: Codable, Identifiable {
 }
 
 
+// MARK: - MockMovieData
 
 struct MockMovieData {
     static let sampleMovies: [Movie] = [

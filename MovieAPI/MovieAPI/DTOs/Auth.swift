@@ -4,7 +4,7 @@
 //
 //  Created by Enes Saglam on 21.05.2025.
 //
-
+// MARK: - User
 public struct LoginRequest: Codable {
     public let email: String
     public let password: String
