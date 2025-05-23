@@ -52,19 +52,36 @@ public final class AuthService: AuthServiceProtocol {
                     return
                 }
 
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    completion(.failure(AuthError.noData))
+                    return
+                }
+                
                 guard let data = data else {
                     completion(.failure(AuthError.noData))
                     return
                 }
 
-                do {
-                    let response = try JSONDecoder().decode(LoginResponse.self, from: data)
-                    KeychainService.save(key: "authToken", value: response.token) // ✅ Token artık Keychain'de
-                    completion(.success(response.user))
-                } catch {
-                    completion(.failure(AuthError.decoding(error)))
+                if (200...299).contains(httpResponse.statusCode) {
+                    do {
+                        let response = try JSONDecoder().decode(LoginResponse.self, from: data)
+                        KeychainService.save(key: "authToken", value: response.token)
+                        completion(.success(response.user))
+                    } catch {
+                        completion(.failure(AuthError.decoding(error)))
+                    }
+                } else {
+                    // Hata response'u parse etmeye çalış
+                    if let apiError = try? JSONDecoder().decode(APIErrorResponse.self, from: data) {
+                        let msg = apiError.error ?? apiError.message ?? "Unknown error"
+                        completion(.failure(AuthError.api(msg)))
+                    } else {
+                        let text = String(data: data, encoding: .utf8) ?? "Unknown error"
+                        completion(.failure(AuthError.api(text)))
+                    }
                 }
             }
         }.resume()
     }
+
 }
