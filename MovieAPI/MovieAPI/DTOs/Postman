@@ -1,0 +1,293 @@
+
+Body
+raw (json)
+json
+{
+    "name": "Updated Name",
+    "surname": "Updated Surname",
+    "email": "updated@example.com",
+    "password": "newpassword123"
+}
+
+[
+    {
+        "id": 1,
+        "title": "Inception",
+        "year": 2010,
+        "rating": 8.8,
+        "actors": [
+            "Leonardo DiCaprio",
+            "Joseph Gordon-Levitt",
+            "Elliot Page"
+        ],
+        "category": "Science Fiction",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg",
+        "description": "A skilled thief is offered a chance to erase his criminal history by planting an idea into a target's subconscious."
+    },
+    {
+        "id": 2,
+        "title": "The Godfather",
+        "year": 1972,
+        "rating": 9.2,
+        "actors": [
+            "Marlon Brando",
+            "Al Pacino",
+            "James Caan"
+        ],
+        "category": "Crime",
+        "poster_url": "https://storage.googleapis.com/pod_public/1300/262788.jpg",
+        "description": "The aging patriarch of a crime dynasty transfers control of his empire to his reluctant son."
+    },
+    {
+        "id": 3,
+        "title": "Interstellar",
+        "year": 2014,
+        "rating": 8.6,
+        "actors": [
+            "Matthew McConaughey",
+            "Anne Hathaway",
+            "Jessica Chastain"
+        ],
+        "category": "Adventure",
+        "poster_url": "https://m.media-amazon.com/images/I/91vIHsL-zjL.jpg",
+        "description": "A group of explorers travel through a wormhole in space in an attempt to ensure humanity's survival."
+    },
+    {
+        "id": 4,
+        "title": "Parasite",
+        "year": 2019,
+        "rating": 8.6,
+        "actors": [
+            "Song Kang-ho",
+            "Lee Sun-kyun",
+            "Cho Yeo-jeong"
+        ],
+        "category": "Thriller",
+        "poster_url": "https://m.media-amazon.com/images/I/71lrpAOFQJS._AC_UF894,1000_QL80_.jpg",
+        "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy and the poor."
+    },
+    {
+        "id": 5,
+        "title": "The Dark Knight",
+        "year": 2008,
+        "rating": 9,
+        "actors": [
+            "Christian Bale",
+            "Heath Ledger",
+            "Aaron Eckhart"
+        ],
+        "category": "Action",
+        "poster_url": "https://m.media-amazon.com/images/I/91KkWf50SoL.jpg",
+        "description": "Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."
+    },
+    {
+        "id": 6,
+        "title": "Fight Club",
+        "year": 1999,
+        "rating": 8.8,
+        "actors": [
+            "Brad Pitt",
+            "Edward Norton",
+            "Helena Bonham Carter"
+        ],
+        "category": "Drama",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BOTgyOGQ1NDItNGU3Ny00MjU3LTg2YWEtNmEyYjBiMjI1Y2M5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "description": "An insomniac office worker and a soap maker form an underground fight club that evolves into something more."
+    },
+    {
+        "id": 7,
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "rating": 8.9,
+        "actors": [
+            "John Travolta",
+            "Samuel L. Jackson",
+            "Uma Thurman"
+        ],
+        "category": "Crime",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BYTViYTE3ZGQtNDBlMC00ZTAyLTkyODMtZGRiZDg0MjA2YThkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "description": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in tales of violence."
+    },
+    {
+        "id": 8,
+        "title": "The Matrix",
+        "year": 1999,
+        "rating": 8.7,
+        "actors": [
+            "Keanu Reeves",
+            "Laurence Fishburne",
+            "Carrie-Anne Moss"
+        ],
+        "category": "Science Fiction",
+        "poster_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt0133093%2F&psig=AOvVaw2Ei4bgPC377e1rggKywvW6&ust=1747486839682000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiGhvSFqI0DFQAAAAAdAAAAABAE",
+        "description": "A hacker learns the nature of his reality and his role in the war against its controllers."
+    },
+    {
+        "id": 9,
+        "title": "Forrest Gump",
+        "year": 1994,
+        "rating": 8.8,
+        "actors": [
+            "Tom Hanks",
+            "Robin Wright",
+            "Gary Sinise"
+        ],
+        "category": "Drama",
+        "poster_url": "https://cdn.kinocheck.com/i/ogicothwme.jpg",
+        "description": "The presidencies of Kennedy and Johnson, the Vietnam War, and more through the eyes of an Alabama man."
+    },
+    {
+        "id": 10,
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "rating": 9.3,
+        "actors": [
+            "Tim Robbins",
+            "Morgan Freeman",
+            "Bob Gunton"
+        ],
+        "category": "Drama",
+        "poster_url": "https://m.media-amazon.com/images/I/61-vQDr7ecL._AC_UF894,1000_QL80_.jpg",
+        "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of decency."
+    },
+    {
+        "id": 11,
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "year": 2001,
+        "rating": 8.8,
+        "actors": [
+            "Elijah Wood",
+            "Ian McKellen",
+            "Orlando Bloom"
+        ],
+        "category": "Fantasy",
+        "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwjvtARVQAFZvjgby4i1ev7I2h0OgHcG8YoQ&s",
+        "description": "A meek Hobbit and eight companions set out on a journey to destroy the One Ring."
+    },
+    {
+        "id": 12,
+        "title": "The Lord of the Rings: The Return of the King",
+        "year": 2003,
+        "rating": 8.9,
+        "actors": [
+            "Elijah Wood",
+            "Viggo Mortensen",
+            "Ian McKellen"
+        ],
+        "category": "Fantasy",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMTZkMjBjNWMtZGI5OC00MGU0LTk4ZTItODg2NWM3NTVmNWQ4XkEyXkFqcGc@._V1_.jpg",
+        "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo."
+    },
+    {
+        "id": 13,
+        "title": "Gladiator",
+        "year": 2000,
+        "rating": 8.5,
+        "actors": [
+            "Russell Crowe",
+            "Joaquin Phoenix",
+            "Connie Nielsen"
+        ],
+        "category": "Action",
+        "poster_url": "https://upload.wikimedia.org/wikipedia/tr/8/8d/Gladiator_ver1.jpg",
+        "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family."
+    },
+    {
+        "id": 14,
+        "title": "Whiplash",
+        "year": 2014,
+        "rating": 8.5,
+        "actors": [
+            "Miles Teller",
+            "J.K. Simmons",
+            "Paul Reiser"
+        ],
+        "category": "Drama",
+        "poster_url": "https://cdn.kinocheck.com/i/w=1200/t9lml7k5or.jpg",
+        "description": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams are mentored by an abusive instructor."
+    },
+    {
+        "id": 15,
+        "title": "The Social Network",
+        "year": 2010,
+        "rating": 7.7,
+        "actors": [
+            "Jesse Eisenberg",
+            "Andrew Garfield",
+            "Justin Timberlake"
+        ],
+        "category": "Biography",
+        "poster_url": "https://upload.wikimedia.org/wikipedia/en/8/8c/The_Social_Network_film_poster.png",
+        "description": "Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook."
+    },
+    {
+        "id": 16,
+        "title": "The Prestige",
+        "year": 2006,
+        "rating": 8.5,
+        "actors": [
+            "Christian Bale",
+            "Hugh Jackman",
+            "Scarlett Johansson"
+        ],
+        "category": "Mystery",
+        "poster_url": "https://upload.wikimedia.org/wikipedia/tr/f/fc/Prestij_f_1.jpg",
+        "description": "Two stage magicians engage in a bitter rivalry that leads them on a life-long battle for supremacy."
+    },
+    {
+        "id": 17,
+        "title": "Joker",
+        "year": 2019,
+        "rating": 8.4,
+        "actors": [
+            "Joaquin Phoenix",
+            "Robert De Niro",
+            "Zazie Beetz"
+        ],
+        "category": "Crime",
+        "poster_url": "https://upload.wikimedia.org/wikipedia/tr/9/97/Joker_%28film%29.jpg",
+        "description": "In Gotham City, mentally troubled comedian Arthur Fleck embarks on a downward spiral of revolution and crime."
+    },
+    {
+        "id": 18,
+        "title": "Avengers: Endgame",
+        "year": 2019,
+        "rating": 8.4,
+        "actors": [
+            "Robert Downey Jr.",
+            "Chris Evans",
+            "Mark Ruffalo"
+        ],
+        "category": "Superhero",
+        "poster_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDiPzMAcBnyo1M4mhR-dMupltpbqgkLFYfvw&s",
+        "description": "After the devastating events of Infinity War, the Avengers assemble once more to reverse Thanos' actions."
+    },
+    {
+        "id": 19,
+        "title": "Django Unchained",
+        "year": 2012,
+        "rating": 8.4,
+        "actors": [
+            "Jamie Foxx",
+            "Christoph Waltz",
+            "Leonardo DiCaprio"
+        ],
+        "category": "Western",
+        "poster_url": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_.jpg",
+        "description": "With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation owner."
+    },
+    {
+        "id": 20,
+        "title": "Blade Runner 2049",
+        "year": 2017,
+        "rating": 8,
+        "actors": [
+            "Ryan Gosling",
+            "Harrison Ford",
+            "Ana de Armas"
+        ],
+        "category": "Science Fiction",
+        "poster_url": "https://de.web.img3.acsta.net/pictures/17/08/30/10/16/406748.jpg",
+        "description": "Young Blade Runner K's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard."
+    }
+]
